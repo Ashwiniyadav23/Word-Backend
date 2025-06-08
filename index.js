@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const OpenAI = require("openai");
-const serverless = require("serverless-http");
+// const serverless = require("serverless-http");
 
 const app = express();
 app.use(cors());
@@ -63,4 +63,4 @@ app.get("/api/word", async (req, res) => {
 
 // Export for Vercel
 module.exports = app;
-module.exports.handler = serverless(app);
+// module.exports.handler = serverless(app);
