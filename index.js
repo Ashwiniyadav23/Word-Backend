@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const OpenAI = require("openai");
-// const serverless = require("serverless-http");
+const serverless = require("serverless-http"); // ✅ Required for Vercel
 
 const app = express();
 app.use(cors());
@@ -61,6 +61,6 @@ app.get("/api/word", async (req, res) => {
   }
 });
 
-// Export for Vercel
+// ✅ For Vercel deployment (do not use app.listen)
 module.exports = app;
-// module.exports.handler = serverless(app);
+module.exports.handler = serverless(app);
